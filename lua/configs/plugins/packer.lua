@@ -26,6 +26,7 @@ return packer.startup(function(use)
     -- My plugins here
     use 'wbthomason/packer.nvim'
     use 'windwp/nvim-autopairs'
+    use {'numToStr/Comment.nvim'}
     use {'lewis6991/gitsigns.nvim' -- tag = 'release' -- To use the latest release
     }
     use {'max397574/better-escape.nvim'}
