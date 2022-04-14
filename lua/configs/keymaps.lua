@@ -26,6 +26,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', opts)
 
 -- Keymaps for NvimTree
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeFindFileToggle <CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>a', ':NvimTreeFocus <CR>', opts)
 
 -- Keymaps for Telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files <CR>', opts)
