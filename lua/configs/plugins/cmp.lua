@@ -100,7 +100,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 'c'}),
+        end, {'i', 's'}),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.confirm({
