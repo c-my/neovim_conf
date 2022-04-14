@@ -29,6 +29,8 @@ return packer.startup(function(use)
     use {'lewis6991/gitsigns.nvim' -- tag = 'release' -- To use the latest release
     }
     use {'max397574/better-escape.nvim'}
+
+    -- CMP plugins
     use {'hrsh7th/nvim-cmp'}
     use {'hrsh7th/cmp-nvim-lsp'}
     use {'hrsh7th/cmp-buffer'}
@@ -36,9 +38,11 @@ return packer.startup(function(use)
     use {'hrsh7th/cmp-cmdline'}
     use {'L3MON4D3/LuaSnip'}
     use {'rafamadriz/friendly-snippets'}
+
     -- LSP
     use {'neovim/nvim-lspconfig'}
     use {'williamboman/nvim-lsp-installer'}
+
     -- UI Plugins
     use {
         'kyazdani42/nvim-tree.lua',
@@ -58,9 +62,6 @@ return packer.startup(function(use)
         as = "catppuccin"
     }
     use {'folke/tokyonight.nvim'}
-    -- use 'hrsh7th/cmp-cmdline'
-    -- use 'foo1/bar1.nvim'
-    -- use 'foo2/bar2.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

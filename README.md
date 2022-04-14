@@ -29,8 +29,8 @@
 - [ ] CMP document border
 - [x] CMP highlight 首个
 - [x] CMP ghost
-- [ ] CMP 函数自动加括号
+- [x] CMP 函数自动加括号
 - [x] LSP 放在 CMP sources 最前面
-- [ ] Autopairs 配置
+- [x] Autopairs 配置
 - [ ] 注释插件
 - [ ] shift 块后保持选择

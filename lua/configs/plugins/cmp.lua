@@ -10,6 +10,11 @@ if not present_lua then
     return
 end
 
+local present_auto_pair, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
+if not present_auto_pair then
+    return
+end
+
 require("luasnip.loaders.from_vscode").lazy_load()
 
 local kind_icons = {
@@ -39,6 +44,8 @@ local kind_icons = {
     Operator = "",
     TypeParameter = ""
 }
+
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 cmp.setup({
     snippet = {
@@ -140,13 +147,13 @@ cmp.setup({
     }}
 })
 
-require'cmp'.setup.cmdline(':', {
+cmp.setup.cmdline(':', {
     sources = {{
         name = 'cmdline'
     }}
 })
 
-require'cmp'.setup.cmdline('/', {
+cmp.setup.cmdline('/', {
     sources = {{
         name = 'buffer'
     }}
