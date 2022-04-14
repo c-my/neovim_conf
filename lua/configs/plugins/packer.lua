@@ -55,7 +55,6 @@ return packer.startup(function(use)
         cmd = 'Telescope',
         requires = {{'nvim-lua/plenary.nvim'}}
     }
-    use {'rcarriga/nvim-notify'}
 
     -- Themes
     use {

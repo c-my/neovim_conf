@@ -22,7 +22,6 @@
 - [x] LSP
 - [x] 调整配置文件缩进
 - [ ] Telescope 选择主题配色
-- [ ] Notify 配置
 - [ ] Packer Plugins 懒加载
 - [x] CMP snip换行后tab数量问题
 - [x] CMP command 不区分大小写
@@ -32,5 +31,5 @@
 - [x] CMP 函数自动加括号
 - [x] LSP 放在 CMP sources 最前面
 - [x] Autopairs 配置
-- [ ] 注释插件
+- [x] 注释插件
 - [ ] shift 块后保持选择
