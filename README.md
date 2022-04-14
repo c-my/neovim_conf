@@ -20,8 +20,8 @@
 ## TODOs
 
 - [x] LSP
+
 - [x] 调整配置文件缩进
-- [ ] Telescope 选择主题配色
 - [ ] Packer Plugins 懒加载
 - [x] CMP snip换行后tab数量问题
 - [x] CMP command 不区分大小写
@@ -32,4 +32,5 @@
 - [x] LSP 放在 CMP sources 最前面
 - [x] Autopairs 配置
 - [x] 注释插件
+- [ ] Luasnip 功能
 - [ ] shift 块后保持选择

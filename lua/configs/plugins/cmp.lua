@@ -84,7 +84,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 'c'}),
+        end, {'i', 'c', 's'}),
         ['<C-j>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item({
@@ -93,10 +93,10 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 'c'}),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        end, {'i', 'c', 's'}),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}), -- d
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c', 's'}), -- d
         ['<C-e>'] = cmp.mapping({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close()
@@ -118,7 +118,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 'c'}),
+        end, {'i', 'c', 's'}),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if luasnip.jumpable(-1) then
                 luasnip.jump(-1)
@@ -130,6 +130,11 @@ cmp.setup({
     completion = {
         -- Highlight first item
         completeopt = 'menu,menuone,noinsert'
+    },
+    window = {
+        documentation = {
+           border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        }
     },
     experimental = {
         -- ghost_text = true
