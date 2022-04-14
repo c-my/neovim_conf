@@ -37,8 +37,11 @@ return packer.startup(function(use)
     use {'hrsh7th/cmp-buffer'}
     use {'hrsh7th/cmp-path'}
     use {'hrsh7th/cmp-cmdline'}
-    use {'L3MON4D3/LuaSnip'}
-    use {'rafamadriz/friendly-snippets'}
+    use {'saadparwaiz1/cmp_luasnip'} -- Snippet compleetions
+
+    -- Snippets
+    use {'L3MON4D3/LuaSnip'} -- Snippet engine
+    use {'rafamadriz/friendly-snippets'} -- Snippets collection
 
     -- LSP
     use {'neovim/nvim-lspconfig'}
