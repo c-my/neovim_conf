@@ -58,6 +58,7 @@ return packer.startup(function(use)
         cmd = 'Telescope',
         requires = {{'nvim-lua/plenary.nvim'}}
     }
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
 
     -- Themes
     use {

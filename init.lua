@@ -13,4 +13,5 @@ require 'configs.plugins.autopairs'
 require 'configs.plugins.gitsigns'
 
 require 'configs.plugins.nvimtree'
+require 'configs.plugins.bufferline'
 
