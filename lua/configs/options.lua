@@ -1,5 +1,6 @@
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.number = true
+vim.opt.cursorline = true
 vim.opt.numberwidth = 2
 vim.opt.wrap = false
 vim.opt.fileencoding = 'utf-8'
