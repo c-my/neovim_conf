@@ -4,4 +4,12 @@ if not present then
     return
 end
 
-nvimtree.setup()
+vim.g.nvim_tree_group_empty = 1
+
+nvimtree.setup({
+   renderer = {
+       indent_markers = {
+           enable = true,
+       }
+   }
+})
