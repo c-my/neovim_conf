@@ -25,14 +25,43 @@ packer.init {
 return packer.startup(function(use)
     -- My plugins here
     use 'wbthomason/packer.nvim'
-    use 'windwp/nvim-autopairs'
-    use {'numToStr/Comment.nvim'}
-    use {'lewis6991/gitsigns.nvim' -- tag = 'release' -- To use the latest release
+    use 'lewis6991/impatient.nvim'
+    use {
+        'windwp/nvim-autopairs', -- Can't lazyloaded because cmp-related
+        config = function()
+            require('configs.plugins.autopairs')
+        end
     }
-    use {'max397574/better-escape.nvim'}
+    use {
+        'numToStr/Comment.nvim',
+        event = {'BufRead', 'BufNewFile'},
+        config = function()
+            require('configs.plugins.comment')
+        end
+    }
+    use {
+        'lewis6991/gitsigns.nvim',
+        event = {'BufRead', 'BufNewFile'},
+        config = function()
+            require('configs.plugins.gitsigns')
+        end
+        -- tag = 'release' -- To use the latest release
+    }
+    use {
+        'max397574/better-escape.nvim',
+        event = 'InsertEnter',
+        config = function()
+            require('configs.plugins.better_escape')
+        end
+    }
 
     -- CMP plugins
-    use {'hrsh7th/nvim-cmp'}
+    use {
+        'hrsh7th/nvim-cmp',
+        config = function()
+            require('configs.plugins.cmp')
+        end
+    }
     use {'hrsh7th/cmp-nvim-lsp'}
     use {'hrsh7th/cmp-buffer'}
     use {'hrsh7th/cmp-path'}
@@ -44,28 +73,61 @@ return packer.startup(function(use)
     use {'rafamadriz/friendly-snippets'} -- Snippets collection
 
     -- LSP
-    use {'neovim/nvim-lspconfig'}
-    use {'williamboman/nvim-lsp-installer'}
+    use {
+        'neovim/nvim-lspconfig',
+        -- config = function()
+        --     require('configs.plugins.lsp_installer')
+        -- end
+    }
+    use {
+        'williamboman/nvim-lsp-installer',
+        config = function()
+            require('configs.plugins.lsp_installer')
+        end
+    }
 
     -- UI Plugins
+    use {'kyazdani42/nvim-web-devicons'}
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {'kyazdani42/nvim-web-devicons' -- optional, for file icon
-        }
+        },
+        config = function()
+            require('configs.plugins.nvimtree')
+        end
     }
     use {
         'nvim-telescope/telescope.nvim',
         cmd = 'Telescope',
         requires = {{'nvim-lua/plenary.nvim'}}
     }
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "*",
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require('configs.plugins.bufferline')
+        end
+    }
 
     -- Themes
     use {
         "catppuccin/nvim",
-        as = "catppuccin"
+        as = "catppuccin",
+        config = function()
+            local catppuccin = require('catppuccin')
+            catppuccin.setup()
+            vim.cmd [[colorscheme catppuccin]]
+        end
     }
-    use {'folke/tokyonight.nvim'}
+    use {
+        'folke/tokyonight.nvim',
+        disable = true,
+        config = function()
+            vim.g.tokyonight_style = "night"
+            vim.cmd [[colorscheme tokyonight]]
+        end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

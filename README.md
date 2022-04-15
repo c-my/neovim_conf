@@ -21,7 +21,7 @@
 
 - [x] LSP
 - [x] 调整配置文件缩进
-- [ ] Packer Plugins 懒加载
+- [x] Packer Plugins 懒加载
 - [x] CMP snip换行后tab数量问题
 - [x] CMP command 不区分大小写
 - [x] CMP document border
