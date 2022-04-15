@@ -2,11 +2,13 @@
 
 ## Plugins
 
-* [packer.nvim](https://github.com/wbthomason/packer.nvim)
-* [auto-pairs](https://github.com/jiangmiao/auto-pairs)
+* [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+* [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
 * [better-escape.nvim](https://github.com/max397574/better-escape.nvim)
+* [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 * [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 * [ewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+* [lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim)
 * [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
 * [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
 * [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
