@@ -114,6 +114,14 @@ return packer.startup(function(use)
             require('configs.plugins.bufferline')
         end
     }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        config = function()
+            require('configs.plugins.lua_line')
+        end,
+        opt = false,
+    }
 
     -- Themes
     use {

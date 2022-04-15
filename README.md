@@ -34,6 +34,7 @@
 - [x] Autopairs 配置
 - [x] 注释插件
 - [x] Luasnip 功能
+- [x] LuaLine 
 - [ ] LSP DOc 翻页
 - [ ] window resize 快捷键
 - [ ] shift 块后保持选择
