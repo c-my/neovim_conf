@@ -45,7 +45,7 @@ local kind_icons = {
     TypeParameter = ""
 }
 
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 
 cmp.setup({
     snippet = {
@@ -59,7 +59,7 @@ cmp.setup({
         end
     },
     formatting = {
-        fields = {'kind', 'abbr', 'menu'},
+        fields = { 'kind', 'abbr', 'menu' },
         format = function(entry, vim_item)
             vim_item.abbr = string.format('%s', vim_item.abbr)
             vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
@@ -84,7 +84,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 'c', 's'}),
+        end, { 'i', 'c', 's' }),
         ['<C-j>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item({
@@ -93,21 +93,21 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 'c', 's'}),
+        end, { 'i', 'c', 's' }),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c', 's'}), -- d
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c', 's' }), -- d
         ['<C-e>'] = cmp.mapping({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close()
         }),
-        ['<CR>'] = cmp.mapping(function (fallback)
+        ['<CR>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.confirm()
             else
                 fallback()
             end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.confirm({
@@ -118,14 +118,14 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 'c', 's'}),
+        end, { 'i', 'c', 's' }),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if luasnip.jumpable(-1) then
                 luasnip.jump(-1)
             else
                 fallback()
             end
-        end, {'i', 's'})
+        end, { 'i', 's' })
     },
     completion = {
         -- Highlight first item
@@ -133,13 +133,13 @@ cmp.setup({
     },
     window = {
         documentation = {
-           border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         }
     },
     experimental = {
         -- ghost_text = true
     },
-    sources = {{
+    sources = { {
         name = 'nvim_lsp'
     }, {
         name = 'luasnip'
@@ -149,17 +149,17 @@ cmp.setup({
         name = 'path'
     }, {
         name = 'cmdline'
-    }}
+    } }
 })
 
 cmp.setup.cmdline(':', {
-    sources = {{
+    sources = { {
         name = 'cmdline'
-    }}
+    } }
 })
 
 cmp.setup.cmdline('/', {
-    sources = {{
+    sources = { {
         name = 'buffer'
-    }}
+    } }
 })

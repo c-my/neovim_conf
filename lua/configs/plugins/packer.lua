@@ -1,8 +1,8 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
-                                  install_path})
+    packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+        install_path })
 end
 
 -- Only required if you have packer configured as `opt`
@@ -34,14 +34,14 @@ return packer.startup(function(use)
     }
     use {
         'numToStr/Comment.nvim',
-        event = {'BufRead', 'BufNewFile'},
+        event = { 'BufRead', 'BufNewFile' },
         config = function()
             require('configs.plugins.comment')
         end
     }
     use {
         'lewis6991/gitsigns.nvim',
-        event = {'BufRead', 'BufNewFile'},
+        event = { 'BufRead', 'BufNewFile' },
         config = function()
             require('configs.plugins.gitsigns')
         end
@@ -62,15 +62,15 @@ return packer.startup(function(use)
             require('configs.plugins.cmp')
         end
     }
-    use {'hrsh7th/cmp-nvim-lsp'}
-    use {'hrsh7th/cmp-buffer'}
-    use {'hrsh7th/cmp-path'}
-    use {'hrsh7th/cmp-cmdline'}
-    use {'saadparwaiz1/cmp_luasnip'} -- Snippet compleetions
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'saadparwaiz1/cmp_luasnip' } -- Snippet compleetions
 
     -- Snippets
-    use {'L3MON4D3/LuaSnip'} -- Snippet engine
-    use {'rafamadriz/friendly-snippets'} -- Snippets collection
+    use { 'L3MON4D3/LuaSnip' } -- Snippet engine
+    use { 'rafamadriz/friendly-snippets' } -- Snippets collection
 
     -- LSP
     use {
@@ -85,12 +85,17 @@ return packer.startup(function(use)
             require('configs.plugins.lsp_installer')
         end
     }
+    -- use { 'jose-elias-alvarez/null-ls.nvim',
+    --     config = function()
+    --         require('configs.plugins.null_ls')
+    --     end
+    -- }
 
     -- UI Plugins
-    use {'kyazdani42/nvim-web-devicons'}
+    use { 'kyazdani42/nvim-web-devicons' }
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = {'kyazdani42/nvim-web-devicons' -- optional, for file icon
+        requires = { 'kyazdani42/nvim-web-devicons' -- optional, for file icon
         },
         config = function()
             require('configs.plugins.nvimtree')
@@ -99,7 +104,7 @@ return packer.startup(function(use)
     use {
         'nvim-telescope/telescope.nvim',
         cmd = 'Telescope',
-        requires = {{'nvim-lua/plenary.nvim'}}
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use {
         'akinsho/bufferline.nvim',
