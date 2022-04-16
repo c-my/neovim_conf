@@ -6,6 +6,15 @@ vim.keymap.set('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Use ESC to turn off search highlighting
+vim.keymap.set('n', '<Esc>', ':noh<CR>', opts)
+
+-- Move in insert mode
+vim.keymap.set('i', '<C-h>', '<Left>', opts)
+vim.keymap.set('i', '<C-j>', '<Down>', opts)
+vim.keymap.set('i', '<C-k>', '<Up>', opts)
+vim.keymap.set('i', '<C-l>', '<Right>', opts)
+
 -- Moving line
 -- == re-indents the line to suit its new position
 -- gc reselects the last visual block
