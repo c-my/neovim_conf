@@ -17,6 +17,10 @@ vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
 
+-- Keep selecting visual block
+vim.keymap.set('v', '<', '<gv', opts)
+vim.keymap.set('v', '>', '>gv', opts)
+
 -- Navigating window
 vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
 vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
