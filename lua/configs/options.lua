@@ -26,3 +26,4 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.completeopt = 'menu,menuone,noinsert'
+vim.opt.shortmess = 'I'
