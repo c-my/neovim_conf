@@ -1,8 +1,4 @@
-local present, lsp_installer = pcall(require, 'nvim-lsp-installer')
-if not present then
-    print 'no lsp installer'
-    return
-end
+local lsp_installer = require('nvim-lsp-installer')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer

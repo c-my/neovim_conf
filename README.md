@@ -10,7 +10,8 @@
 * [ewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 * [lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim)
 * [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
-* [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+* [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+* 
 * [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 * [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 

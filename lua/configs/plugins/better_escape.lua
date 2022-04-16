@@ -1,8 +1,4 @@
-local present, escape = pcall(require, 'better_escape')
-if not present then
-    print "no escape"
-    return
-end
+local escape = require('better_escape')
 
 escape.setup({
     mapping = { 'jk' },

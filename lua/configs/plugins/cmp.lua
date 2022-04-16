@@ -1,19 +1,8 @@
-local present_cmp, cmp = pcall(require, 'cmp')
-if not present_cmp then
-    print 'no cmp'
-    return
-end
+local cmp = require('cmp')
 
-local present_lua, luasnip = pcall(require, 'luasnip')
-if not present_lua then
-    print 'no luasnip'
-    return
-end
+local luasnip = require('luasnip')
 
-local present_auto_pair, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
-if not present_auto_pair then
-    return
-end
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 require("luasnip.loaders.from_vscode").lazy_load()
 

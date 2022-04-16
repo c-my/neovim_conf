@@ -26,6 +26,11 @@ return packer.startup(function(use)
     -- My plugins here
     use 'wbthomason/packer.nvim'
     use 'lewis6991/impatient.nvim'
+    use { 'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require('configs.plugins.treesitter')
+        end
+    }
     use {
         'windwp/nvim-autopairs', -- Can't lazyloaded because cmp-related
         config = function()

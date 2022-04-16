@@ -1,6 +1,3 @@
-local present, comment = pcall(require, 'Comment')
-if not present then
-    return
-end
+local comment = require('Comment')
 
 comment.setup()
