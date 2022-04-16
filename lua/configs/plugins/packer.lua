@@ -27,9 +27,10 @@ return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'lewis6991/impatient.nvim'
     use { 'nvim-treesitter/nvim-treesitter',
+        event = { "BufRead", "BufNewFile" },
         config = function()
             require('configs.plugins.treesitter')
-        end
+        end,
     }
     use {
         'windwp/nvim-autopairs', -- Can't lazyloaded because cmp-related
@@ -145,7 +146,7 @@ return packer.startup(function(use)
     }
     use {
         'folke/tokyonight.nvim',
-        disable = true,
+        opt = true,
         config = function()
             vim.g.tokyonight_style = 'night'
             vim.cmd [[colorscheme tokyonight]]
