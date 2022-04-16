@@ -122,11 +122,16 @@ return packer.startup(function(use)
         end,
         opt = false,
     }
+    use { 'akinsho/toggleterm.nvim',
+        config = function()
+            require('configs.plugins.toggleterm')
+        end
+    }
 
     -- Themes
     use {
-        "catppuccin/nvim",
-        as = "catppuccin",
+        'catppuccin/nvim',
+        as = 'catppuccin',
         config = function()
             local catppuccin = require('catppuccin')
             catppuccin.setup()
@@ -137,12 +142,12 @@ return packer.startup(function(use)
         'folke/tokyonight.nvim',
         disable = true,
         config = function()
-            vim.g.tokyonight_style = "night"
+            vim.g.tokyonight_style = 'night'
             vim.cmd [[colorscheme tokyonight]]
         end
     }
 
-    -- Automatically set up your configuration after cloning packer.nvim
+    -- Automatically set up your configuration after cloning packer.nvim,
     -- Put this at the end after all plugins
     if packer_bootstrap then
         require('packer').sync()
