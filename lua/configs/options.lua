@@ -10,6 +10,7 @@ vim.opt.timeoutlen = 400
 
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
+vim.opt.pumheight = 13
 vim.opt.wildignorecase = true
 vim.opt.wildmenu = false
 

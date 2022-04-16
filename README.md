@@ -4,6 +4,7 @@
 
 * [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
 * [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
+* [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 * [better-escape.nvim](https://github.com/max397574/better-escape.nvim)
 * [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 * [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -11,7 +12,6 @@
 * [lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim)
 * [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
 * [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-* 
 * [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 * [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
@@ -37,5 +37,4 @@
 - [x] Luasnip 功能
 - [x] LuaLine 
 - [x] shift 块后保持选择
-- [ ] LSP DOc 翻页
 - [ ] window resize 快捷键
