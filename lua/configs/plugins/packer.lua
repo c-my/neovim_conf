@@ -90,11 +90,11 @@ return packer.startup(function(use)
             require('configs.plugins.lsp_installer')
         end
     }
-    -- use { 'jose-elias-alvarez/null-ls.nvim',
-    --     config = function()
-    --         require('configs.plugins.null_ls')
-    --     end
-    -- }
+    use { 'jose-elias-alvarez/null-ls.nvim',
+        config = function()
+            require('configs.plugins.null_ls')
+        end
+    }
 
     -- UI Plugins
     use { 'kyazdani42/nvim-web-devicons' }

@@ -15,7 +15,7 @@
 * [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
 * [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
 * [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
-* [better-escape.nvim](https://github.com/max397574/better-escape.nvim)
+* [max397574/better-escape.nvim](https://github.com/max397574/better-escape.nvim)
 * [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 * [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 * [ewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
