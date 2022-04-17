@@ -21,8 +21,10 @@
 * [ewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 * [lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim)
 * [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
+* [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 * [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 * [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+* [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 * [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
 ## Themes

@@ -127,6 +127,12 @@ return packer.startup(function(use)
         end,
         opt = false
     }
+    use { 'simrat39/symbols-outline.nvim',
+        cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose' },
+        config = function()
+            vim.keymap.set('n', '<leader>o', ':SymbolsOutline<CR>', { silent = true })
+        end,
+    }
     use {
         'akinsho/toggleterm.nvim',
         config = function()
@@ -152,7 +158,19 @@ return packer.startup(function(use)
             vim.cmd [[colorscheme tokyonight]]
         end
     }
-
+    use({
+        'rose-pine/neovim',
+        opt = true,
+        as = 'rose-pine',
+        tag = 'v1.*',
+        config = function()
+            require('rose-pine').setup({
+                ---@usage 'main'|'moon'
+                dark_variant = 'main',
+            })
+            -- vim.cmd('colorscheme rose-pine')
+        end
+    })
     -- Automatically set up your configuration after cloning packer.nvim,
     -- Put this at the end after all plugins
     if packer_bootstrap then
