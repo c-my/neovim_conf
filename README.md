@@ -1,5 +1,15 @@
 # My Neovim Config
 
+## Bootstrap
+
+1. Clone the repository to
+   * Windows: `~/AppData/Local/nvim/`
+   * Linus: `~/.config/nvim/`
+2. Run `nvim`
+3. Restart nvim after Packer Sync process
+
+**Note**: Make sure there is no file `plugin/packer_compiled.lua` before step2.
+
 ## Plugins
 
 * [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)

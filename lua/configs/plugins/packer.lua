@@ -24,13 +24,14 @@ packer.init {
 }
 return packer.startup(function(use)
     -- My plugins here
-    use 'wbthomason/packer.nvim'
-    use 'lewis6991/impatient.nvim'
-    use { 'nvim-treesitter/nvim-treesitter',
+    use { 'wbthomason/packer.nvim' }
+    use { 'lewis6991/impatient.nvim' }
+    use {
+        'nvim-treesitter/nvim-treesitter',
         event = { "BufRead", "BufNewFile" },
         config = function()
             require('configs.plugins.treesitter')
-        end,
+        end
     }
     use {
         'windwp/nvim-autopairs', -- Can't lazyloaded because cmp-related
@@ -79,9 +80,7 @@ return packer.startup(function(use)
     use { 'rafamadriz/friendly-snippets' } -- Snippets collection
 
     -- LSP
-    use {
-        'neovim/nvim-lspconfig',
-        -- config = function()
+    use { 'neovim/nvim-lspconfig' -- config = function()
         --     require('configs.plugins.lsp_installer')
         -- end
     }
@@ -126,9 +125,10 @@ return packer.startup(function(use)
         config = function()
             require('configs.plugins.lualine')
         end,
-        opt = false,
+        opt = false
     }
-    use { 'akinsho/toggleterm.nvim',
+    use {
+        'akinsho/toggleterm.nvim',
         config = function()
             require('configs.plugins.toggleterm')
         end
