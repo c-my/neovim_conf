@@ -128,9 +128,8 @@ return packer.startup(function(use)
         opt = false
     }
     use { 'simrat39/symbols-outline.nvim',
-        cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose' },
         config = function()
-            vim.keymap.set('n', '<leader>o', ':SymbolsOutline<CR>', { silent = true })
+            vim.keymap.set('n', '<leader>l', ':SymbolsOutline<CR>', { silent = true })
         end,
     }
     use {
