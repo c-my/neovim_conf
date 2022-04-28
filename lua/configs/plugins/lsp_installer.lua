@@ -54,30 +54,3 @@ lspconfig.jdtls.setup({
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 })
-
--- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
--- or if the server is already installed).
--- lsp_installer.on_server_ready(function(server)
---     local opts = {
---         on_attach = on_attach,
---         flags = {
---             -- This will be the default in neovim 0.7+
---             debounce_text_changes = 150
---         },
---         capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
---     }
---
---     if server.name == 'sumneko_lua' then
---         local sumneko_lua_opts = require('configs.plugins.lsp_settings.sumneko_lua')
---         opts.settings = sumneko_lua_opts
---     end
---     -- (optional) Customize the options passed to the server
---     -- if server.name == "tsserver" then
---     --     opts.root_dir = function() ... end
---     -- end
---
---     -- This setup() function will take the provided server configuration and decorate it with the necessary properties
---     -- before passing it onwards to lspconfig.
---     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
---     server:setup(opts)
--- end)
