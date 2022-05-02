@@ -128,17 +128,13 @@ cmp.setup({
     experimental = {
         -- ghost_text = true
     },
-    sources = { {
-        name = 'nvim_lsp'
-    }, {
-        name = 'luasnip'
-    }, {
-        name = 'buffer'
-    }, {
-        name = 'path'
-    }, {
-        name = 'cmdline'
-    } }
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'cmdline' },
+    }
 })
 
 cmp.setup.cmdline(':', {
