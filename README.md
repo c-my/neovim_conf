@@ -18,8 +18,9 @@
 * [max397574/better-escape.nvim](https://github.com/max397574/better-escape.nvim)
 * [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 * [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-* [ewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+* https://github.com/lewis6991/gitsigns.nvim
 * [lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim)
+* [lukas-reineke/indent-blankline.nvim: Indent guides for Neovim](https://github.com/lukas-reineke/indent-blankline.nvim)
 * [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
 * [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 * [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)

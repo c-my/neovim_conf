@@ -28,7 +28,7 @@ return packer.startup(function(use)
     use { 'lewis6991/impatient.nvim' }
     use {
         'nvim-treesitter/nvim-treesitter',
-        event = { "BufRead", "BufNewFile" },
+        event = { 'BufRead', 'BufNewFile' },
         config = function()
             require('configs.plugins.treesitter')
         end
@@ -37,6 +37,13 @@ return packer.startup(function(use)
         'windwp/nvim-autopairs', -- Can't lazyloaded because cmp-related
         config = function()
             require('configs.plugins.autopairs')
+        end
+    }
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        event = { 'BufRead'},
+        config = function()
+            require('configs.plugins.indent_blankline')
         end
     }
     use {
