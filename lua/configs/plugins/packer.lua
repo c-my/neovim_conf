@@ -41,7 +41,7 @@ return packer.startup(function(use)
     }
     use {
         'lukas-reineke/indent-blankline.nvim',
-        event = { 'BufRead'},
+        event = { 'BufRead' },
         config = function()
             require('configs.plugins.indent_blankline')
         end
@@ -89,12 +89,10 @@ return packer.startup(function(use)
     -- LSP
     use {
         'williamboman/nvim-lsp-installer',
-        {
-            'neovim/nvim-lspconfig',
-            config = function()
-                require('configs.plugins.lsp_installer')
-            end
-        }
+        'neovim/nvim-lspconfig',
+        config = function()
+            require('configs.plugins.lsp_installer')
+        end
     }
     use { 'jose-elias-alvarez/null-ls.nvim',
         config = function()
