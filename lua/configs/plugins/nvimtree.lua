@@ -1,7 +1,5 @@
 local nvimtree = require("nvim-tree")
 
-vim.g.nvim_tree_group_empty = 1
-
 nvimtree.setup({
     open_on_setup = true,
     open_on_setup_file = true,
@@ -14,6 +12,7 @@ nvimtree.setup({
     renderer = {
         indent_markers = {
             enable = true,
-        }
+        },
+        group_empty = true,
     }
 })
