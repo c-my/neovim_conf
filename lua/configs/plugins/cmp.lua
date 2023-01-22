@@ -36,6 +36,8 @@ local kind_icons = {
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 
+vim.cmd [[highlight CmpItemAbbrDeprecated gui=strikethrough]]
+
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
