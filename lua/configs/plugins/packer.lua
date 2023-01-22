@@ -1,8 +1,8 @@
 local ensure_packer = function()
     local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
         vim.cmd [[packadd packer.nvim]]
         return true
     end
@@ -11,165 +11,170 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
+return require("packer").startup(function(use)
+    use "wbthomason/packer.nvim"
     -- My plugins here
-    use { 'lewis6991/impatient.nvim' }
+    use { "lewis6991/impatient.nvim" }
     use {
-        'nvim-treesitter/nvim-treesitter',
-        event = { 'BufRead', 'BufNewFile' },
+        "nvim-treesitter/nvim-treesitter",
+        event = { "BufRead", "BufNewFile" },
         config = function()
-            require('configs.plugins.treesitter')
+            require("configs.plugins.treesitter")
         end
     }
     use {
-        'windwp/nvim-autopairs', -- Can't lazyloaded because cmp-related
+        "windwp/nvim-autopairs", -- Can"t lazyloaded because cmp-related
         config = function()
-            require('configs.plugins.autopairs')
+            require("configs.plugins.autopairs")
         end
     }
     use {
-        'lukas-reineke/indent-blankline.nvim',
-        event = { 'BufRead' },
+        "lukas-reineke/indent-blankline.nvim",
+        event = { "BufRead" },
         config = function()
-            require('configs.plugins.indent_blankline')
+            require("configs.plugins.indent_blankline")
         end
     }
     use {
-        'numToStr/Comment.nvim',
-        event = { 'BufRead', 'BufNewFile' },
+        "numToStr/Comment.nvim",
+        event = { "BufRead", "BufNewFile" },
         config = function()
-            require('configs.plugins.comment')
+            require("configs.plugins.comment")
         end
     }
     use {
-        'lewis6991/gitsigns.nvim',
-        event = { 'BufRead', 'BufNewFile' },
+        "lewis6991/gitsigns.nvim",
+        event = { "BufRead", "BufNewFile" },
         config = function()
-            require('configs.plugins.gitsigns')
+            require("configs.plugins.gitsigns")
         end
-        -- tag = 'release' -- To use the latest release
+        -- tag = "release" -- To use the latest release
     }
     use {
-        'max397574/better-escape.nvim',
-        event = 'InsertEnter',
+        "max397574/better-escape.nvim",
+        event = "InsertEnter",
         config = function()
-            require('configs.plugins.better_escape')
+            require("configs.plugins.better_escape")
         end
     }
 
     -- CMP plugins
     use {
-        'hrsh7th/nvim-cmp',
+        "hrsh7th/nvim-cmp",
         config = function()
-            require('configs.plugins.cmp')
+            require("configs.plugins.cmp")
         end
     }
-    use { 'hrsh7th/cmp-nvim-lsp' }
-    use { 'hrsh7th/cmp-buffer' }
-    use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/cmp-cmdline' }
-    use { 'saadparwaiz1/cmp_luasnip' } -- Snippet compleetions
+    use { "hrsh7th/cmp-nvim-lsp" }
+    use { "hrsh7th/cmp-buffer" }
+    use { "hrsh7th/cmp-path" }
+    use { "hrsh7th/cmp-cmdline" }
+    use { "saadparwaiz1/cmp_luasnip" } -- Snippet compleetions
 
     -- Snippets
-    use { 'L3MON4D3/LuaSnip' } -- Snippet engine
-    use { 'rafamadriz/friendly-snippets' } -- Snippets collection
+    use { "L3MON4D3/LuaSnip" } -- Snippet engine
+    use { "rafamadriz/friendly-snippets" } -- Snippets collection
 
     -- LSP
     use {
-        'williamboman/nvim-lsp-installer',
-        {
-            'neovim/nvim-lspconfig',
-            config = function()
-                require('configs.plugins.lsp_installer')
-            end
-        }
-    }
-    use { 'jose-elias-alvarez/null-ls.nvim',
+        "williamboman/mason.nvim",
+        requires = { "neovim/nvim-lspconfig" },
         config = function()
-            require('configs.plugins.null_ls')
+            require("configs.plugins.mason")
+        end
+
+    }
+    use {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("configs.plugins.mason_lspconfig")
+        end
+    }
+    use { "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require("configs.plugins.null_ls")
         end
     }
 
     -- UI Plugins
-    use { 'kyazdani42/nvim-web-devicons' }
+    use { "kyazdani42/nvim-web-devicons" }
     use {
-        'kyazdani42/nvim-tree.lua',
-        requires = { 'kyazdani42/nvim-web-devicons' -- optional, for file icon
+        "kyazdani42/nvim-tree.lua",
+        requires = { "kyazdani42/nvim-web-devicons" -- optional, for file icon
         },
         config = function()
-            require('configs.plugins.nvimtree')
+            require("configs.plugins.nvimtree")
         end
     }
     use {
-        'nvim-telescope/telescope.nvim',
-        cmd = 'Telescope',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
+        requires = { { "nvim-lua/plenary.nvim" } }
     }
     use {
-        'akinsho/bufferline.nvim',
+        "akinsho/bufferline.nvim",
         tag = "*",
-        requires = 'kyazdani42/nvim-web-devicons',
+        requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require('configs.plugins.bufferline')
+            require("configs.plugins.bufferline")
         end
     }
     use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
-            require('configs.plugins.lualine')
+            require("configs.plugins.lualine")
         end,
         opt = false
     }
-    use { 'simrat39/symbols-outline.nvim',
+    use { "simrat39/symbols-outline.nvim",
         config = function()
-            vim.keymap.set('n', '<leader>l', ':SymbolsOutline<CR>', { silent = true })
+            vim.keymap.set("n", "<leader>l", ":SymbolsOutline<CR>", { silent = true })
         end,
     }
     use {
-        'akinsho/toggleterm.nvim',
+        "akinsho/toggleterm.nvim",
         config = function()
-            require('configs.plugins.toggleterm')
+            require("configs.plugins.toggleterm")
         end
     }
 
     -- Themes
     use {
-        'catppuccin/nvim',
-        as = 'catppuccin',
+        "catppuccin/nvim",
+        as = "catppuccin",
         config = function()
             vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-            local catppuccin = require('catppuccin')
+            local catppuccin = require("catppuccin")
             catppuccin.setup()
             vim.cmd [[colorscheme catppuccin]]
         end
     }
     use {
-        'folke/tokyonight.nvim',
+        "folke/tokyonight.nvim",
         opt = true,
         config = function()
-            vim.g.tokyonight_style = 'night'
+            vim.g.tokyonight_style = "night"
             vim.cmd [[colorscheme tokyonight]]
         end
     }
     use({
-        'rose-pine/neovim',
+        "rose-pine/neovim",
         opt = true,
-        as = 'rose-pine',
-        tag = 'v1.*',
+        as = "rose-pine",
+        tag = "v1.*",
         config = function()
-            require('rose-pine').setup({
-                ---@usage 'main'|'moon'
-                dark_variant = 'main',
+            require("rose-pine").setup({
+                ---@usage "main"|"moon"
+                dark_variant = "main",
             })
-            -- vim.cmd('colorscheme rose-pine')
+            -- vim.cmd("colorscheme rose-pine")
         end
     })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
-        require('packer').sync()
+        require("packer").sync()
     end
 end)
