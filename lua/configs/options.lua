@@ -28,3 +28,8 @@ vim.opt.splitright = true
 
 vim.opt.completeopt = 'menu,menuone,noinsert'
 vim.opt.shortmess = 'I'
+
+vim.api.nvim_create_autocmd(
+    "VimLeave",
+    { pattern = "*", command = "set guicursor=a:ver20-blinkwait300-blinkon200-blinkoff150" }
+)
