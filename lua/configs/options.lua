@@ -15,6 +15,7 @@ vim.opt.wildignorecase = true
 vim.opt.wildmenu = false
 
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 vim.opt.smarttab = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
