@@ -4,7 +4,7 @@
 
 1. Clone the repository to
    * Windows: `~/AppData/Local/nvim/`
-   * Linus: `~/.config/nvim/`
+   * Linux: `~/.config/nvim/`
 2. Run `nvim`
 3. Restart nvim after Packer Sync process
 
@@ -13,20 +13,27 @@
 ## Plugins
 
 * [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
-* [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
-* [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
-* [max397574/better-escape.nvim](https://github.com/max397574/better-escape.nvim)
-* [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-* [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-* https://github.com/lewis6991/gitsigns.nvim
 * [lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim)
-* [lukas-reineke/indent-blankline.nvim: Indent guides for Neovim](https://github.com/lukas-reineke/indent-blankline.nvim)
-* [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
+* [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+* [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
+* [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+* [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+* [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+* [max397574/better-escape.nvim](https://github.com/max397574/better-escape.nvim)
+* [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+* [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+* [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+* [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+* [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 * [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
-* [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-* [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
-* [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
+* [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
+* [nvim-tree/nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
 * [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+* [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+* [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+* [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+* [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
+* [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 
 ## Themes
 

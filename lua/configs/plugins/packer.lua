@@ -98,10 +98,10 @@ return require("packer").startup({
         }
 
         -- UI Plugins
-        use { "kyazdani42/nvim-web-devicons" }
+        use { "nvim-tree/nvim-web-devicons" }
         use {
-            "kyazdani42/nvim-tree.lua",
-            requires = { "kyazdani42/nvim-web-devicons" -- optional, for file icon
+            "nvim-tree/nvim-tree.lua",
+            requires = { "nvim-tree/nvim-web-devicons" -- optional, for file icon
             },
             config = function()
                 require("configs.plugins.nvimtree")
@@ -115,7 +115,7 @@ return require("packer").startup({
         use {
             "akinsho/bufferline.nvim",
             tag = "*",
-            requires = "kyazdani42/nvim-web-devicons",
+            requires = "nvim-tree/nvim-web-devicons",
             config = function()
                 require("configs.plugins.bufferline")
             end
