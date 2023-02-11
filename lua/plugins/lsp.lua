@@ -1,11 +1,11 @@
-return {{
+return { {
     "williamboman/mason.nvim",
     config = true
 }, {
     "williamboman/mason-lspconfig.nvim",
-    event = {"BufReadPre", "BufNewFile"},
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
-        ensure_installed = {"sumneko_lua", "jdtls", "omnisharp"}
+        ensure_installed = { "jdtls", "omnisharp", "pyright", "sumneko_lua" }
     },
     config = function(_, opts)
         local on_attach = function(client, bufnr)
@@ -55,7 +55,7 @@ return {{
                     settings = {
                         Lua = {
                             diagnostics = {
-                                globals = {"vim"}
+                                globals = { "vim" }
                             },
                             workspace = {
                                 library = {
@@ -69,5 +69,5 @@ return {{
             end
         }
     end,
-    dependencies = {"neovim/nvim-lspconfig"}
-}}
+    dependencies = { "neovim/nvim-lspconfig" }
+} }
