@@ -1,55 +1,77 @@
-local opts = {
-    silent = true
-}
+local function map(mode, lhs, rhs, opts)
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    vim.keymap.set(mode, lhs, rhs, opts)
+end
 
-vim.keymap.set('', '<Space>', '<Nop>', opts)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+map("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Use ESC to turn off search highlighting
-vim.keymap.set('n', '<Esc>', ':noh<CR>', opts)
+map({ "i", "n" }, "<Esc>", "<Cmd>noh<CR><Esc>", { desc = "Escape and clear hlsearch" })
 
 -- Move in insert mode
-vim.keymap.set('i', '<C-h>', '<Left>', opts)
-vim.keymap.set('i', '<C-j>', '<Down>', opts)
-vim.keymap.set('i', '<C-k>', '<Up>', opts)
-vim.keymap.set('i', '<C-l>', '<Right>', opts)
+map("i", "<C-h>", "<Left>")
+map("i", "<C-j>", "<Down>")
+map("i", "<C-k>", "<Up>")
+map("i", "<C-l>", "<Right>")
+
 
 -- Moving line
 -- == re-indents the line to suit its new position
 -- gc reselects the last visual block
 -- = re-indents the block
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', opts)
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', opts)
-vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
-vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
+map("n", "<A-j>", "<Cmd>m .+1<CR>==", { desc = "Move down" })
+map("n", "<A-k>", "<Cmd>m .-2<CR>==", { desc = "Move up" })
+map("i", "<A-j>", "<Esc><Cmd>m .+1<CR>==gi", { desc = "Move down" })
+map("i", "<A-k>", "<Esc><Cmd>m .-2<CR>==gi", { desc = "Move up" })
+-- The colon(:) bellow cannot be replaced by <Cmd>
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move down" })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move up" })
 
 -- Keep selecting visual block
-vim.keymap.set('v', '<', '<gv', opts)
-vim.keymap.set('v', '>', '>gv', opts)
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
--- Navigating window
-vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
-vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
-vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
-vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
+-- Add undo break-points
+map("i", ",", ",<C-g>u")
+map("i", ".", ".<C-g>u")
+map("i", ";", ";<C-g>u")
 
--- Keymaps for NvimTree
-vim.keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle <CR>', opts)
-vim.keymap.set('n', '<leader>a', ':NvimTreeFocus <CR>', opts)
+-- save file
+map({ "i", "v", "n", "s" }, "<C-s>", "<Cmd>w<CR><Esc>", { desc = "Save file" })
+map({ "i", "v", "n", "s" }, "<Leader>fs", "<Cmd>w<CR><Esc>", { desc = "Save file" })
 
--- Keymaps for Telescope
-vim.keymap.set('n', '<leader>ff', ':Telescope find_files <CR>', opts)
-vim.keymap.set('n', '<leader>fg', ':Telescope live_grep <CR>', opts)
-vim.keymap.set('n', '<leader>fb', ':Telescope buffers <CR>', opts)
-vim.keymap.set('n', '<leader>fh', ':Telescope help_tags <CR>', opts)
+
+-- Move to window using the <ctrl> hjkl keys
+map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
+
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<Cmd>resize +2<CR>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<Cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<Cmd>vertical resize +2<CR>", { desc = "Increase window width" })
+
+-- split/delete windows
+map("n", "<Leader>ww", "<C-W>p", { desc = "Other window" })
+map("n", "<Leader>wd", "<C-W>c", { desc = "Delete window" })
+map("n", "<Leader>w|", "<C-W>s", { desc = "Split window below" })
+map("n", "<Leader>w-", "<C-W>v", { desc = "Split window right" })
+map("n", "<Leader>|", "<C-W>s", { desc = "Split window below" })
+map("n", "<Leader>-", "<C-W>v", { desc = "Split window right" })
+
+
+-- quit
+map("n", "<Leader>qq", "<Cmd>qa<CR>", { desc = "Quit all" })
 
 -- Keymaps for LSP
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.keymap.set('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+map("n", "<space>e", "<Cmd>lua vim.diagnostic.open_float()<CR>")
+map("n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
+map("n", "]d", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
+map("n", "<space>q", "<Cmd>lua vim.diagnostic.setloclist()<CR>")

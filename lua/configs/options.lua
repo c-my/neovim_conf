@@ -1,31 +1,34 @@
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.number = true
-vim.opt.cursorline = true
-vim.opt.numberwidth = 2
-vim.opt.wrap = false
+vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
+vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.fileencoding = 'utf-8'
-vim.opt.mouse = 'a'
-vim.opt.updatetime = 250
+vim.opt.list = true
+vim.opt.mouse = 'a' -- Enable mouse mode
+vim.opt.number = true
+vim.opt.numberwidth = 2
+vim.opt.showmode = false -- Dont show mode since we have a statusline
 vim.opt.timeoutlen = 400
+vim.opt.undofile = true
+vim.opt.updatetime = 250
+vim.opt.wrap = false
 
-vim.opt.smartcase = true
 vim.opt.ignorecase = true
 vim.opt.pumheight = 13
+vim.opt.smartcase = true
 vim.opt.wildignorecase = true
 vim.opt.wildmenu = false
 
-vim.opt.smartindent = true
 vim.opt.autoindent = true
-vim.opt.smarttab = true
 vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-
+vim.opt.smartindent = true
+vim.opt.smarttab = true
+vim.opt.softtabstop = 4
+vim.opt.splitbelow = true -- Put new windows below current
+vim.opt.splitright = true -- Put new windows right of current
+vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 
-vim.opt.splitbelow = true
-vim.opt.splitright = true
 
 vim.opt.completeopt = 'menu,menuone,noinsert'
 vim.opt.shortmess = 'I'

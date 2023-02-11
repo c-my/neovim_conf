@@ -6,14 +6,10 @@
    * Windows: `~/AppData/Local/nvim/`
    * Linux: `~/.config/nvim/`
 2. Run `nvim`
-3. Restart nvim after Packer Sync process
-
-**Note**: Make sure there is no file `plugin/packer_compiled.lua` before step2.
 
 ## Plugins
 
-* [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
-* [lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim)
+* [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 * [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 * [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
 * [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
@@ -44,7 +40,7 @@
 
 - [x] LSP
 - [x] 调整配置文件缩进
-- [x] Packer Plugins 懒加载
+- [x] ~~Packer Plugins 懒加载~~
 - [x] CMP snip换行后tab数量问题
 - [x] CMP command 不区分大小写
 - [x] CMP document border
@@ -57,4 +53,5 @@
 - [x] Luasnip 功能
 - [x] LuaLine 
 - [x] shift 块后保持选择
-- [ ] window resize 快捷键
+- [x] window resize 快捷键
+- [ ] nvimtree 抢占Lazy窗口焦点
