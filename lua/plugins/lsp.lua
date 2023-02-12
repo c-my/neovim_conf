@@ -5,7 +5,7 @@ return { {
     "williamboman/mason-lspconfig.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-        ensure_installed = { "jdtls", "omnisharp", "pyright", "sumneko_lua" }
+        ensure_installed = { "jdtls", "omnisharp", "pyright", "lua_ls" }
     },
     config = function(_, opts)
         local on_attach = function(client, bufnr)
@@ -49,8 +49,8 @@ return { {
                 })
             end,
 
-            ["sumneko_lua"] = function()
-                lspconfig.sumneko_lua.setup({
+            ["lua_ls"] = function()
+                lspconfig.lua_ls.setup({
                     on_attach = on_attach,
                     settings = {
                         Lua = {
