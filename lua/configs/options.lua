@@ -1,11 +1,11 @@
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.opt.cursorline = true -- Enable highlighting of the current line
-vim.opt.fileencoding = 'utf-8'
+vim.opt.fileencoding = "utf-8"
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.list = true
-vim.opt.mouse = 'a' -- Enable mouse mode
+vim.opt.mouse = "a" -- Enable mouse mode
 vim.opt.number = true
 vim.opt.numberwidth = 2
 vim.opt.showmode = false -- Dont show mode since we have a statusline
@@ -31,9 +31,8 @@ vim.opt.splitright = true -- Put new windows right of current
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 
-
-vim.opt.completeopt = 'menu,menuone,noinsert'
-vim.opt.shortmess = 'I'
+vim.opt.completeopt = "menu,menuone,noinsert"
+vim.opt.shortmess = "I"
 
 vim.api.nvim_create_autocmd(
     "VimLeave",

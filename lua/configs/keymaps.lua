@@ -4,7 +4,7 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-map("", "<Space>", "<Nop>", opts)
+map("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -16,7 +16,6 @@ map("i", "<C-h>", "<Left>")
 map("i", "<C-j>", "<Down>")
 map("i", "<C-k>", "<Up>")
 map("i", "<C-l>", "<Right>")
-
 
 -- Moving line
 -- == re-indents the line to suit its new position
@@ -43,7 +42,6 @@ map("i", ";", ";<C-g>u")
 map({ "i", "v", "n", "s" }, "<C-s>", "<Cmd>w<CR><Esc>", { desc = "Save file" })
 map({ "i", "v", "n", "s" }, "<Leader>fs", "<Cmd>w<CR><Esc>", { desc = "Save file" })
 
-
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
@@ -63,7 +61,6 @@ map("n", "<Leader>w|", "<C-W>s", { desc = "Split window below" })
 map("n", "<Leader>w-", "<C-W>v", { desc = "Split window right" })
 map("n", "<Leader>|", "<C-W>s", { desc = "Split window below" })
 map("n", "<Leader>-", "<C-W>v", { desc = "Split window right" })
-
 
 -- quit
 map("n", "<Leader>qq", "<Cmd>qa<CR>", { desc = "Quit all" })
