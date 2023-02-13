@@ -19,25 +19,28 @@ return { {
                 silent = true,
                 buffer = bufnr
             }
-            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-            vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-            vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-            vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-            vim.keymap.set("n", "<space>wl", function()
+            local function map(mode, lhs, rhs, opts)
+                opts = opts or {}
+                opts.noremap = true
+                opts.silent = true
+                opts.buffer = bufnr
+                vim.keymap.set(mode, lhs, rhs, opts)
+            end
+            map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+            map("n", "gd", "<Cmd>Telescope lsp_definitions<CR>", { desc = "Goto Definition" })
+            map("n", "gr", "<Cmd>Telescope lsp_references<CR>", { desc = "Godo References" })
+            map("n", "gi", "<Cmd>Telescope lsp_implementation<CR>", { desc = "Goto Implementation" })
+            map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+            map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+            vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+            vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+            vim.keymap.set("n", "<Leader>wl", function()
                 print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
             end, bufopts)
-            vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-            vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-            vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-            vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-            vim.keymap.set("n", "<space>f", function()
-                vim.lsp.buf.format {
-                    async = true
-                }
-            end, bufopts)
+            vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, bufopts)
+            vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, bufopts)
+            map("n", "<Leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+            map("n", "<Leader>fm", vim.lsp.buf.format, { desc = "Format Document" })
         end
         local lspconfig = require('lspconfig')
         require("mason-lspconfig").setup(opts)
