@@ -9,6 +9,11 @@ return { {
     },
     config = function(_, opts)
         local on_attach = function(client, bufnr)
+            -- Avoiding LSP formatting conflicts
+            local null_ls_table = { pyright = true }
+            if null_ls_table[client.name] then
+                client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+            end
             -- Enable completion triggered by <c-x><c-o>
             vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -43,18 +48,29 @@ return { {
             map("n", "<Leader>fm", vim.lsp.buf.format, { desc = "Format Document" })
         end
         local lspconfig = require('lspconfig')
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        local lsp_formatting = function(bufnr)
+            vim.lsp.buf.format({
+                filter = function(client)
+                    -- apply whatever logic you want (in this example, we'll only use null-ls)
+                    return client.name == "null-ls"
+                end,
+                bufnr = bufnr,
+            })
+        end
         require("mason-lspconfig").setup(opts)
         require("mason-lspconfig").setup_handlers {
-
             function(server_name) -- default handler (optional)
                 require("lspconfig")[server_name].setup({
-                    on_attach = on_attach
+                    on_attach = on_attach,
+                    capabilities = capabilities,
                 })
             end,
 
             ["lua_ls"] = function()
                 lspconfig.lua_ls.setup({
                     on_attach = on_attach,
+                    capabilities = capabilities,
                     settings = {
                         Lua = {
                             diagnostics = {
@@ -66,8 +82,7 @@ return { {
                                 }
                             }
                         }
-                    }
-                    -- capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+                    },
                 })
             end
         }
