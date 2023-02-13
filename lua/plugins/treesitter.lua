@@ -4,7 +4,7 @@ return {
     build = ":TSUpdate",
     event = {"BufReadPost", "BufNewFile"},
     opts = {
-        ensure_installed = {"c", "c_sharp", "cpp", "go", "help", "java", "json", "lua", "python", "vim"},
+        ensure_installed = {"c", "c_sharp", "cpp", "go", "help", "java", "json", "lua", "python", "vim", "yaml"},
         highlight = {
             enable = true
         }
