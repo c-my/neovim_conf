@@ -87,5 +87,5 @@ return { {
             end
         }
     end,
-    dependencies = { "neovim/nvim-lspconfig" }
+    dependencies = { "neovim/nvim-lspconfig", "jose-elias-alvarez/null-ls.nvim" }
 } }
