@@ -40,7 +40,7 @@ map("i", ";", ";<C-g>u")
 
 -- save file
 map({ "i", "v", "n", "s" }, "<C-s>", "<Cmd>w<CR><Esc>", { desc = "Save file" })
-map({ "i", "v", "n", "s" }, "<Leader>fs", "<Cmd>w<CR><Esc>", { desc = "Save file" })
+map({ "v", "n", "s" }, "<Leader>fs", "<Cmd>w<CR><Esc>", { desc = "Save file" })
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
