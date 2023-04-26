@@ -3,6 +3,8 @@ local M = {
     on_attach = function(client, bufnr)
         vim.keymap.set("n", "<Leader>lb", "<Cmd>TexlabBuild<CR>", { desc = "Texlab Build", buffer = bufnr })
         vim.keymap.set("n", "<Leader>lf", "<Cmd>TexlabForward<CR>", { desc = "Texlab Forward", buffer = bufnr })
+        vim.keymap.set("i", "<C-b>", "<Cmd>TexlabBuild<CR>", { desc = "Texlab Build", buffer = bufnr })
+        vim.keymap.set("i", "<C-f>", "<Cmd>TexlabForward<CR>", { desc = "Texlab Forward", buffer = bufnr })
     end,
     settings = {
         texlab = {
