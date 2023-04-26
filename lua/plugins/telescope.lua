@@ -1,79 +1,79 @@
+-- This functions is to fix a bug in telescope
+-- that the fold not word if open file in telescope
+-- https://github.com/nvim-telescope/telescope.nvim/issues/559#issuecomment-1221001701
+local function stopinsert(callback)
+    return function(prompt_bufnr)
+        vim.cmd.stopinsert()
+        vim.schedule(function()
+            callback(prompt_bufnr)
+        end)
+    end
+end
 return {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         cmd = "Telescope",
+        branch = "0.1.x",
+        config = function()
+            local actions = require("telescope.actions")
+            require("telescope").setup({
+
+                defaults = {
+                    mappings = {
+                        i = {
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
+                            ["<C-f>"] = actions.preview_scrolling_down,
+                            ["<C-b>"] = actions.preview_scrolling_up,
+                            ["<Esc>"] = actions.close, -- As we don't use normal node in telescope
+                            ["<CR>"] = stopinsert(actions.select_default),
+                            ["<C-v>"] = stopinsert(actions.select_vertical),
+                            ["<C-x>"] = stopinsert(actions.select_horizontal),
+                            ["<C-t>"] = stopinsert(actions.select_tab),
+                        },
+                        n = {
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
+                            ["<C-f>"] = actions.preview_scrolling_down,
+                            ["<C-b>"] = actions.preview_scrolling_up,
+                            ["q"] = actions.close,
+                        },
+                    },
+                },
+                pickers = {
+                    colorscheme = {
+                        enable_preview = true,
+                        theme = "dropdown",
+                    },
+                },
+            })
+        end,
         keys = {
             {
                 "<Leader>ff",
-                "<Cmd>Telescope find_files <CR>",
+                "<Cmd>Telescope find_files<CR>",
                 desc = "Find File",
             },
             {
                 "<Leader>fg",
-                "<Cmd>Telescope live_grep <CR>",
+                "<Cmd>Telescope live_grep<CR>",
                 desc = "Find Grep",
             },
             {
                 "<Leader>fb",
-                "<Cmd>Telescope buffers <CR>",
+                "<Cmd>Telescope buffers<CR>",
                 desc = "Find Buffer",
             },
             {
                 "<Leader>fh",
-                "<Cmd>Telescope help_tags <CR>",
+                "<Cmd>Telescope help_tags<CR>",
                 desc = "Find Help",
             },
-        },
-        opts = {
-            defaults = {
-                mappings = {
-                    i = {
-                        ["<C-j>"] = function(...)
-                            return require("telescope.actions").move_selection_next(...)
-                        end,
-                        ["<C-k>"] = function(...)
-                            return require("telescope.actions").move_selection_previous(...)
-                        end,
-                        ["<C-f>"] = function(...)
-                            return require("telescope.actions").preview_scrolling_down(...)
-                        end,
-                        ["<C-b>"] = function(...)
-                            return require("telescope.actions").preview_scrolling_up(...)
-                        end,
-                    },
-                    n = {
-                        ["<C-j>"] = function(...)
-                            return require("telescope.actions").move_selection_next(...)
-                        end,
-                        ["<C-k>"] = function(...)
-                            return require("telescope.actions").move_selection_previous(...)
-                        end,
-                        ["q"] = function(...)
-                            return require("telescope.actions").close(...)
-                        end,
-                        ["<C-f>"] = function(...)
-                            return require("telescope.actions").preview_scrolling_down(...)
-                        end,
-                        ["<C-b>"] = function(...)
-                            return require("telescope.actions").preview_scrolling_up(...)
-                        end,
-                    },
-                },
-                -- pickers = {
-                --     lsp_definitions = {
-                --         theme = "get_cursor",
-                --     },
-                --     lsp_references = {
-                --         theme = "get_cursor",
-                --     },
-                --     lsp_implementation = {
-                --         theme = "get_cursor",
-                --     },
-                --     lsp_type_definitions = {
-                --         theme = "get_cursor",
-                --     },
-                -- },
+            {
+                "<Leader>ft",
+                "<Cmd>Telescope colorscheme<CR>",
+                desc = "Find Theme",
             },
         },
     },
