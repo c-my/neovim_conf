@@ -11,6 +11,10 @@ vim.g.maplocalleader = " "
 -- Use ESC to turn off search highlighting
 map({ "i", "n" }, "<Esc>", "<Cmd>noh<CR><Esc>", { desc = "Escape and clear hlsearch" })
 
+-- better up/down
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
 -- Move in insert mode
 map("i", "<C-h>", "<Left>")
 map("i", "<C-j>", "<Down>")
@@ -38,10 +42,11 @@ map("i", ",", ",<C-g>u")
 map("i", ".", ".<C-g>u")
 map("i", ";", ";<C-g>u")
 
--- save file
+-- Save file
 map({ "i", "v", "n", "s" }, "<C-s>", "<Cmd>w<CR><Esc>", { desc = "Save file" })
 map({ "v", "n", "s" }, "<Leader>fs", "<Cmd>w<CR><Esc>", { desc = "Save file" })
-
+-- New file
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
@@ -65,10 +70,5 @@ map("n", "<Leader>-", "<C-W>v", { desc = "Split window right" })
 -- quit
 map("n", "<Leader>qq", "<Cmd>qa<CR>", { desc = "Quit all" })
 
--- Keymaps for LSP
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-map("n", "<space>e", "<Cmd>lua vim.diagnostic.open_float()<CR>")
-map("n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>")
-map("n", "]d", "<Cmd>lua vim.diagnostic.goto_next()<CR>")
-map("n", "<space>q", "<Cmd>lua vim.diagnostic.setloclist()<CR>")
+-- Lazy
+map("n", "<leader>l", "<Cmd>:Lazy<cr>", { desc = "Lazy" })
