@@ -17,3 +17,8 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.keymap.set("n", "q", "<Cmd>close<CR>", { buffer = event.buf, silent = true, desc = "Close Buffer" })
     end,
 })
+-- Restore terminal cursor shape
+vim.api.nvim_create_autocmd(
+    "VimLeave",
+    { pattern = "*", command = "set guicursor=a:ver20-blinkwait300-blinkon200-blinkoff150" }
+)
