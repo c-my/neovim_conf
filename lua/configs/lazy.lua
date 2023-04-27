@@ -12,12 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
--- {
---     "jose-elias-alvarez/null-ls.nvim",
---     config = function()
---         require("configs.plugins.null_ls")
---     end
--- },
 -- -- UI Plugins
 -- {
 --     "akinsho/bufferline.nvim",

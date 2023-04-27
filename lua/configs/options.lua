@@ -23,16 +23,17 @@ vim.opt.smartcase = true -- Dont ignore case when there is capitals
 vim.opt.wildignorecase = true
 vim.opt.wildmenu = false
 
-vim.opt.autoindent = true
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.softtabstop = 4
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.termguicolors = true
+
 -- Tab and Shift
+vim.opt.autoindent = true
+vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
+vim.opt.smartindent = true
 vim.opt.smarttab = true
+vim.opt.softtabstop = 4
 vim.opt.tabstop = 4 -- Spaces in tab
 
 vim.opt.completeopt = "menu,menuone,noinsert"
